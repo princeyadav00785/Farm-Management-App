@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -17,40 +17,47 @@ import ProfileScreen from "../screens/ProfileScreen";
 import ConfirmationScreen from "../screens/ConfirmationScreen";
 import OrderScreen from "../screens/OrderScreen";
 import WeatherScreen from "../screens/WeatherScreen";
+import FilteredProductInfo from "../screens/FilteredProductInfo";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
+
   function BottomTabs() {
     return (
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          // headerShown: false,
+          tabBarStyle: { backgroundColor: "black" },
+        }}
+      >
         <Tab.Screen
           name="Home"
           component={HomeScreen}
           options={{
             tabBarLabel: "Home",
-            tabBarLabelStyle: { color: "#008E97" },
+            tabBarLabelStyle: { color: "white" },
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
                 <Entypo name="home" size={24} color="#008E97" />
               ) : (
-                <AntDesign name="home" size={24} color="black" />
+                <AntDesign name="home" size={24} color="white" />
               ),
           }}
         />
-            <Tab.Screen
+        <Tab.Screen
           name="Weather"
           component={WeatherScreen}
           options={{
             tabBarLabel: "Weather",
-            tabBarLabelStyle: { color: "#008E97" },
+            tabBarLabelStyle: { color: "white" },
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
                 <AntDesign name="cloud" size={24} color="#008E97" />
               ) : (
-                <AntDesign name="cloud" size={24} color="black" />
+                <AntDesign name="cloud" size={24} color="white" />
               ),
           }}
         />
@@ -65,7 +72,7 @@ const StackNavigator = () => {
               focused ? (
                 <Ionicons name="person" size={24} color="#008E97" />
               ) : (
-                <Ionicons name="person-outline" size={24} color="black" />
+                <Ionicons name="person-outline" size={24} color="white" />
               ),
           }}
         />
@@ -81,57 +88,32 @@ const StackNavigator = () => {
               focused ? (
                 <AntDesign name="shoppingcart" size={24} color="#008E97" />
               ) : (
-                <AntDesign name="shoppingcart" size={24} color="black" />
+                <AntDesign name="shoppingcart" size={24} color="white" />
               ),
           }}
         />
       </Tab.Navigator>
     );
   }
+
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Register"
-          component={RegisterScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Main"
-          component={BottomTabs}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Info"
-          component={ProductInfoScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Address"
-          component={AddAddressScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Add"
-          component={AddressScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Confirm"
-          component={ConfirmationScreen}
-          options={{ headerShown: false }}
-        />
-
-        <Stack.Screen
-          name="Order"
-          component={OrderScreen}
-          options={{ headerShown: false }}
-        />
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { flex: 1 }, // Ensure content takes up the entire screen
+          safeAreaInsets: { top: 0, right: 0, bottom: 0, left: 0 }, // Adjust safe area insets
+        }}
+      >
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Main" component={BottomTabs} />
+        <Stack.Screen name="Info" component={ProductInfoScreen} />
+        <Stack.Screen name="ProductInfo" component={FilteredProductInfo} />
+        <Stack.Screen name="Address" component={AddAddressScreen} />
+        <Stack.Screen name="Add" component={AddressScreen} />
+        <Stack.Screen name="Confirm" component={ConfirmationScreen} />
+        <Stack.Screen name="Order" component={OrderScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

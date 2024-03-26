@@ -22,30 +22,37 @@ const ProfileScreen = () => {
     navigation.setOptions({
       headerTitle: "",
       headerStyle: {
-        backgroundColor: "#00CED1",
+        backgroundColor: "black",
+        
       },
-      headerLeft: () => (
-        <Image
-          style={{ width: 140, height: 120, resizeMode: "contain" }}
-          source={{
-            uri: "https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c518.png",
-          }}
-        />
-      ),
-      headerRight: () => (
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 6,
-            marginRight: 12,
-          }}
-        >
-          <Ionicons name="notifications-outline" size={24} color="black" />
 
-          <AntDesign name="search1" size={24} color="black" />
-        </View>
+      headerLeft: () => (
+        // <Image
+        //   style={{ width: 140, height: 120, resizeMode: "contain" }}
+        //   source={{
+        //     uri: "https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c518.png",
+        //   }}
+        // />
+        <Text 
+        style={{marginLeft:120, fontSize:24,fontWeight:"bold",color:"white" }}
+        >
+          Your Orders
+        </Text>
       ),
+      // headerRight: () => (
+      //   <View
+      //     style={{
+      //       flexDirection: "row",
+      //       alignItems: "center",
+      //       gap: 6,
+      //       marginRight: 12,
+      //     }}
+      //   >
+      //     <Ionicons name="notifications-outline" size={24} color="black" />
+
+      //     <AntDesign name="search1" size={24} color="black" />
+      //   </View>
+      // ),
     });
   }, []);
   const [user, setUser] = useState();
@@ -91,8 +98,8 @@ const ProfileScreen = () => {
   }, []);
   console.log("orders", orders);
   return (
-    <ScrollView style={{ padding: 10, flex: 1, backgroundColor: "white" }}>
-      <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+    <ScrollView style={{ padding: 10, flex: 1, backgroundColor: "black" }}>
+      <Text style={{ fontSize: 26, fontWeight: "bold",marginTop:20 ,color:"white"}}>
         Welcome {user?.name}
       </Text>
 
@@ -158,12 +165,18 @@ const ProfileScreen = () => {
           <Text style={{ textAlign: "center" }}>Logout</Text>
         </Pressable>
       </View >
-     <Text style={{ fontSize: 16, fontWeight: "bold", marginTop:10}}>
+     <Text style={{ fontSize: 26, fontWeight: "bold", marginTop:30, color:"white"}}>
       Recent Orders
      </Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {loading ? (
-          <Text>Loading...</Text>
+          <Text
+          style={{
+           fontSize:20,
+           marginTop:15,
+           color:"white"
+          }}
+          >Loading...</Text>
         ) : orders.length > 0 ? (
           orders.map((order) => (
             <Pressable

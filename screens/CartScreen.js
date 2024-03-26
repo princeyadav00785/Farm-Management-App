@@ -36,16 +36,21 @@ const CartScreen = () => {
   };
   const navigation = useNavigation();
   return (
-    <ScrollView style={{ marginTop: 55, flex: 1, backgroundColor: "white" }}>
+    <ScrollView style={{  flex: 1, backgroundColor: "black" }}>
       <View
         style={{
-          backgroundColor: "#00CED1",
+          backgroundColor: "black",
           padding: 10,
           flexDirection: "row",
           alignItems: "center",
         }}
       >
-        <Pressable
+        <View style={{alignItems:"center", flex:1,justifyContent:"center"}}>
+        <Text style={{fontSize:24, fontWeight:"bold",color:"white"}}>
+          Your Cart
+        </Text>
+        </View>
+        {/* <Pressable
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -64,16 +69,16 @@ const CartScreen = () => {
             color="black"
           />
           <TextInput placeholder="Search Amazon.in" />
-        </Pressable>
+        </Pressable> */}
 
-        <Feather name="mic" size={24} color="black" />
+        {/* <Feather name="mic" size={24} color="black" /> */}
       </View>
 
-      <View style={{ padding: 10, flexDirection: "row", alignItems: "center" }}>
-        <Text style={{ fontSize: 18, fontWeight: "400" }}>Subtotal : </Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>{total}</Text>
+      <View style={{ padding: 10, flexDirection: "row", alignItems: "center", backgroundColor:"black" , marginTop:30}}>
+        <Text style={{ fontSize: 18, fontWeight: "400" ,color:"white", marginLeft:90}}>Subtotal : </Text>
+        <Text style={{ fontSize: 20, fontWeight: "bold",color:"white" }}>{total}</Text>
       </View>
-      <Text style={{ marginHorizontal: 10 }}>EMI details Available</Text>
+      {/* <Text style={{ marginHorizontal: 10 }}>EMI details Available</Text> */}
 
       <Pressable
         onPress={() => navigation.navigate("Confirm")}
@@ -136,16 +141,16 @@ const CartScreen = () => {
                 >
                   {item?.price}
                 </Text>
-                <Image
+                {/* <Image
                   style={{ width: 30, height: 30, resizeMode: "contain" }}
                   source={{
                     uri: "https://assets.stickpng.com/thumbs/5f4924cc68ecc70004ae7065.png",
                   }}
-                />
+                /> */}
                 <Text style={{ color: "green" }}>In Stock</Text>
-                {/* <Text style={{ fontWeight: "500", marginTop: 6 }}>
+                <Text style={{ fontWeight: "500", marginTop: 6, color:"orange" }}>
                   {item?.rating?.rate} ratings
-                </Text> */}
+                </Text>
               </View>
             </Pressable>
 

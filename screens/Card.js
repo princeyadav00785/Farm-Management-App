@@ -6,9 +6,9 @@ import { useNavigation } from '@react-navigation/native'; // Import useNavigatio
 export default function Cards({name, image}) {
   const navigation = useNavigation();
   return (
-<TouchableOpacity style={{marginHorizontal: 10}} 
-onPress={() => navigation.navigate('Details', { name})}
->
+      <TouchableOpacity style={{marginHorizontal: 10}} 
+      onPress={() => navigation.navigate('Details', { name})}
+      >
       <ImageBackground
         source={image}
         style={{height: deviceHeight / 5, width: deviceWidth / 2 - 50 }}
