@@ -14,11 +14,13 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/CartReducer";
+import { addToFav } from "../redux/FavReducer";
 
 const ProductInfoScreen = () => {
   const route = useRoute();
   const { width } = Dimensions.get("window");
   const navigation = useNavigation();
+  const [addedToFav, setAddedToFav] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
   const height = (width * 100) / 100;
   const dispatch = useDispatch();
@@ -29,13 +31,23 @@ const ProductInfoScreen = () => {
       setAddedToCart(false);
     }, 3000); // Reset added to cart message after 3 seconds
   };
+  const addItemToFav = (item) => {
+    setAddedToFav(true);
+    console.log("dispatch is called.")
+    dispatch(addToFav(item));
+    setTimeout(() => {
+      setAddedToFav(false);
+    }, 1000);
+  };
+
   const cart = useSelector((state) => state.cart.cart);
-  
+  const favourites = useSelector((state) => state.favourites.favourites);
   return (
     <ScrollView
       style={{ flex: 1, backgroundColor: "white" }}
       showsVerticalScrollIndicator={false}
     >
+
       {/* Header/Search Bar */}
       <View style={styles.header}>
         {/* <View style={styles.searchBar}>
@@ -46,7 +58,12 @@ const ProductInfoScreen = () => {
       </View>
 
       {/* Image Carousel */}
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        //   style={{width:"80%",marginLeft: 'auto', marginRight: 'auto',backgroundColor:"black"
+        // }}
+      >
         {route.params.carouselImages.map((item, index) => (
           <ImageBackground
             key={index}
@@ -78,23 +95,48 @@ const ProductInfoScreen = () => {
       </View>
 
       {/* Add to Cart and Buy Now Buttons */}
-      <Pressable
-        onPress={() => addItemToCart(route?.params?.item)}
-        style={[styles.button, { backgroundColor: "#FFC72C" }]}
+      <View
+        style={{
+          backgroundColor: "black",
+        }}
       >
-        {addedToCart ? <Text>Added to Cart</Text> : <Text>Add to Cart</Text>}
+        <Pressable
+          onPress={() => addItemToCart(route?.params?.item)}
+          style={[styles.button,
+            //  { backgroundColor: "#FFC72C" }o
+            ]}
+        >
+          {addedToCart ? <Text>Added to Cart</Text> : <Text>Add to Cart</Text>}
+        </Pressable>
+        <Pressable
+        onPress={() => addItemToFav(route?.params?.item)}
+        style={{
+          backgroundColor: "#FFC72C",
+          padding: 10,
+          borderRadius: 20,
+          justifyContent: "center",
+          alignItems: "center",
+          marginHorizontal: 10,
+          marginVertical: 10,
+        }}
+      >
+        {addedToFav ? (
+          <View>
+            <Text>Added to Fav</Text>
+          </View>
+        ) : (
+          <Text>Add to Fav</Text>
+        )}
       </Pressable>
-      <Pressable style={[styles.button, { backgroundColor: "#FFAC1C" }]}>
-        <Text>Buy Now</Text>
-      </Pressable>
+      </View>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#00CED1",
-    padding: 10,
+    backgroundColor: "black",
+    // padding: 30,
     flexDirection: "row",
     alignItems: "center",
   },
@@ -108,23 +150,30 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   image: {
+    // marginTop:10,
     width: Dimensions.get("window").width,
     height: (Dimensions.get("window").width * 100) / 100,
     resizeMode: "contain",
+    backgroundColor: "black",
+    // borderRadius:25
   },
   productDetails: {
-    padding: 10,
+    padding: 30,
+    backgroundColor: "black",
   },
   productTitle: {
-    fontSize: 15,
-    fontWeight: "500",
+    color: "white",
+    fontSize: 22,
+    fontWeight: "900",
   },
   productPrice: {
     fontSize: 18,
     fontWeight: "600",
     marginTop: 6,
+    color: "white",
   },
   productDescription: {
+    color: "white",
     fontSize: 15,
     marginTop: 6,
   },

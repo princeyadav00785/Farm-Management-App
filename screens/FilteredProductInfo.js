@@ -14,11 +14,13 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/CartReducer";
+import { addToFav } from "../redux/FavReducer";
 
 const FilteredProductInfo = () => {
   const route = useRoute();
   const { width } = Dimensions.get("window");
   const navigation = useNavigation();
+  const [addedToFav, setAddedToFav] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
   const height = (width * 100) / 100;
   const dispatch = useDispatch();
@@ -31,15 +33,26 @@ const FilteredProductInfo = () => {
     }, 1000);
   };
 
+  const addItemToFav = (item) => {
+    setAddedToFav(true);
+    console.log("dispatch is called.")
+    dispatch(addToFav(item));
+    setTimeout(() => {
+      setAddedToFav(false);
+    }, 1000);
+  };
+
   const cart = useSelector((state) => state.cart.cart);
-  console.log(cart);
+  // console.log(cart);
+  const favourites = useSelector((state) => state.favourites.favourites);
+  console.log(favourites);
 
   return (
     <ScrollView
-      style={{ marginTop: 55, flex: 1, backgroundColor: "white" }}
+      style={{ marginTop: 0, flex: 1, backgroundColor: "white" }}
       showsVerticalScrollIndicator={false}
     >
-      <View
+      {/* <View
         style={{
           backgroundColor: "#00CED1",
           padding: 10,
@@ -67,23 +80,36 @@ const FilteredProductInfo = () => {
           />
           <TextInput placeholder="Search Amazon.in" />
         </Pressable>
-      </View>
+      </View> */}
 
            <ImageBackground
-            style={{ width, height, marginTop: 0, resizeMode: "contain" }}
+            style={{   width: Dimensions.get("window").width,
+            height: (Dimensions.get("window").width * 100) / 100,marginTop: 0, resizeMode: "contain" }}
             source={{ uri: route.params.carouselImages }} 
             />
-      <View style={{ padding: 10 }}>
-        <Text style={{ fontSize: 15, fontWeight: "500" }}>
+         <View
+         style={{
+          padding:30,
+          backgroundColor:"black",
+         }}
+         >
+         <View style={{ padding: 0 }}>
+        <Text style={{ fontSize: 25, fontWeight: "900", color:"white" }}>
           {route?.params?.title}
         </Text>
 
-        <Text style={{ fontSize: 18, fontWeight: "600", marginTop: 6 }}>
+        <Text style={{ fontSize: 24, fontWeight: "900", marginTop: 6, color:"white" }}>
           ₹{route?.params?.price}
         </Text>
       </View>
-      <Text style={{ fontSize: 18, fontWeight: "600", marginTop: 6 }}>
-          {route?.params?.description}
+      <Text style={{ fontSize: 18, fontWeight: "900", marginTop: 22 ,color:"white"}}>
+         Description:
+        </Text>
+        <Text style={{ fontSize: 16, fontWeight: "900", marginTop: 6, color:"white", marginBottom:10 }}>
+        {route?.params?.description}
+        </Text>
+        <Text style={{ fontSize: 16, fontWeight: "900", marginTop: 4, color:"white", marginBottom:40 }}>
+     Ratings :   {route?.params?.description}
         </Text>
       <Text style={{ height: 1, borderColor: "#D0D0D0", borderWidth: 1 }} />
  
@@ -91,8 +117,10 @@ const FilteredProductInfo = () => {
         IN Stock
       </Text>
       
+         </View>
 
-      <Pressable
+            <View style ={{ backgroundColor:"black"}}>
+            <Pressable
         onPress={() => addItemToCart(route?.params?.item)}
         style={{
           backgroundColor: "#FFC72C",
@@ -114,8 +142,9 @@ const FilteredProductInfo = () => {
       </Pressable>
 
       <Pressable
+        onPress={() => addItemToFav(route?.params?.item)}
         style={{
-          backgroundColor: "#FFAC1C",
+          backgroundColor: "#FFC72C",
           padding: 10,
           borderRadius: 20,
           justifyContent: "center",
@@ -124,8 +153,15 @@ const FilteredProductInfo = () => {
           marginVertical: 10,
         }}
       >
-        <Text>Buy Now</Text>
+        {addedToFav ? (
+          <View>
+            <Text>Added to Fav</Text>
+          </View>
+        ) : (
+          <Text>Add to Fav</Text>
+        )}
       </Pressable>
+            </View>
     </ScrollView>
   );
 };

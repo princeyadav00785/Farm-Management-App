@@ -35,7 +35,7 @@ export default function Details(props) {
       <ImageBackground
         source={require("../assets/images/image1.jpg")}
         style={{ height: deviceHeight, width: deviceWidth }}
-        imageStyle={{ opacity: 0.6, backgroundColor: "black" }}
+        imageStyle={{ opacity: 1, backgroundColor: "black" }}
       />
       <View
         style={{

@@ -60,7 +60,7 @@ const ProfileScreen = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get(
-          `http://192.168.89.200:8000/profile/${userId}`
+          `http://192.168.92.200:8000/profile/${userId}`
         );
         const { user } = response.data;
         setUser(user);
@@ -83,7 +83,7 @@ const ProfileScreen = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          `http://192.168.89.200:8000/orders/${userId}`
+          `http://192.168.92.200:8000/orders/${userId}`
         );
         const orders = response.data.orders;
         setOrders(orders);
@@ -197,10 +197,10 @@ const ProfileScreen = () => {
                 <View style={{ marginVertical: 10 }} key={product._id}>
                   <Image
                     source={{ uri: product.image }}
-                    style={{ width: 100, height: 100, resizeMode: "contain" }}
+                    style={{ width: 150, height: 150, resizeMode: "contain" }}
                   />
-                     <Text style={{maxWidth:"50%" , fontSize:8 ,fontWeight:"bold"}}>{product.name}</Text> 
-                     <Text style={{fontSize:14, fontWeight:"bold"}}>Rs.{product.price}</Text>
+                     <Text style={{maxWidth:"50%" , fontSize:8 ,fontWeight:"bold", color:"white"}}>{product.name}</Text> 
+                     <Text style={{fontSize:14, fontWeight:"bold", color:"white"}}>Rs.{product.price}</Text>
                 </View>
               ))}
             </Pressable>

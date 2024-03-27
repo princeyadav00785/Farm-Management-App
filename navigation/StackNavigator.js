@@ -18,6 +18,10 @@ import ConfirmationScreen from "../screens/ConfirmationScreen";
 import OrderScreen from "../screens/OrderScreen";
 import WeatherScreen from "../screens/WeatherScreen";
 import FilteredProductInfo from "../screens/FilteredProductInfo";
+import SearchScreen from "../screens/SearchScreen";
+import { FontAwesome5 } from '@expo/vector-icons';
+import ModelPage from "../screens/ModelPage";
+import FavScreen from "../screens/FavScreen";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -77,6 +81,21 @@ const StackNavigator = () => {
           }}
         />
 
+          <Tab.Screen
+          name="Fav"
+          component={FavScreen}
+          options={{
+            tabBarLabel: "Favourites",
+            tabBarLabelStyle: { color: "#008E97" },
+            headerShown: false,
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <AntDesign name="heart" size={24} color="#008E97" />
+              ) : (
+                <AntDesign name="heart" size={24} color="white" />
+              ),
+          }}
+         />
         <Tab.Screen
           name="Cart"
           component={CartScreen}
@@ -89,6 +108,21 @@ const StackNavigator = () => {
                 <AntDesign name="shoppingcart" size={24} color="#008E97" />
               ) : (
                 <AntDesign name="shoppingcart" size={24} color="white" />
+              ),
+          }}
+        />
+          <Tab.Screen
+          name="Predictor"
+          component={ModelPage}
+          options={{
+            tabBarLabel: "Predictor",
+            tabBarLabelStyle: { color: "#008E97" },
+            headerShown: false,
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <FontAwesome5 name="robot" size={24} color="black" />
+              ) : (
+                <FontAwesome5 name="robot" size={24} color="white" />
               ),
           }}
         />
@@ -114,6 +148,7 @@ const StackNavigator = () => {
         <Stack.Screen name="Add" component={AddressScreen} />
         <Stack.Screen name="Confirm" component={ConfirmationScreen} />
         <Stack.Screen name="Order" component={OrderScreen} />
+        <Stack.Screen name="Search" component={SearchScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

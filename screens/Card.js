@@ -23,7 +23,8 @@ export default function Cards({name, image}) {
             textAlign: 'center',
             textAlignVertical: 'center',
             color: 'black',
-            marginBottom:400
+            marginBottom:400,
+            fontWeight:"900"
           }}>
           {name}
         </Text>

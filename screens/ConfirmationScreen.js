@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, ScrollView, Pressable,Alert } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Pressable,
+  Alert,
+} from "react-native";
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { UserType } from "../UserContext";
@@ -30,7 +37,7 @@ const ConfirmationScreen = () => {
   const fetchAddresses = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.89.200:8000/addresses/${userId}`
+        `http://192.168.92.200:8000/addresses/${userId}`
       );
       const { addresses } = response.data;
 
@@ -54,7 +61,7 @@ const ConfirmationScreen = () => {
       };
 
       const response = await axios.post(
-        "http://192.168.89.200:8000/orders",
+        "http://192.168.92.200:8000/orders",
         orderData
       );
       if (response.status === 200) {
@@ -86,7 +93,7 @@ const ConfirmationScreen = () => {
 
       const data = await RazorpayCheckout.open(options);
 
-      console.log(data)
+      console.log(data);
 
       const orderData = {
         userId: userId,
@@ -97,7 +104,7 @@ const ConfirmationScreen = () => {
       };
 
       const response = await axios.post(
-        "http://192.168.89.200:8000/orders",
+        "http://192.168.92.200:8000/orders",
         orderData
       );
       if (response.status === 200) {
@@ -169,14 +176,36 @@ const ConfirmationScreen = () => {
 
       {currentStep == 0 && (
         <View style={{ marginHorizontal: 20 }}>
-          <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+          <Text style={{ fontSize: 18, fontWeight: "bold" }}>
             Select Delivery Address
           </Text>
 
-          <Pressable>
+          {addresses.length === 0 ? (
+            <View style={{ marginHorizontal: 20 }}>
+              <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                No Address Found
+              </Text>
+              <Pressable
+                onPress={() => navigation.navigate("Address")}
+                style={{
+                  backgroundColor: "#FFC72C",
+                  padding: 10,
+                  borderRadius: 20,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 15,
+                }}
+              >
+                <Text>Add Address</Text>
+              </Pressable>
+            </View>
+          ) : (
+            // Render address selection section here
+            <View style={{ marginHorizontal: 20 }}>
+               <Pressable>
             {addresses?.map((item, index) => (
               <Pressable
-              key={index}
+                key={item._id}
                 style={{
                   borderWidth: 1,
                   borderColor: "#D0D0D0",
@@ -304,6 +333,10 @@ const ConfirmationScreen = () => {
               </Pressable>
             ))}
           </Pressable>
+            </View>
+          )}
+
+         
         </View>
       )}
 

@@ -44,7 +44,7 @@ const AddressScreen = () => {
           postalCode
       }
 
-      axios.post("http://192.168.89.200:8000/addresses",{userId,address}).then((response) => {
+      axios.post("http://192.168.92.200:8000/addresses",{userId,address}).then((response) => {
           Alert.alert("Success","Addresses added successfully");
           setName("");
           setMobileNo("");
@@ -62,135 +62,143 @@ const AddressScreen = () => {
       })
   }
   return (
-    <ScrollView style={{ marginTop: 50 }}>
-      <View style={{ height: 50, backgroundColor: "#00CED1" }} />
+    <ScrollView style={{ marginTop: 0 }}>
+      <View style={{ height: 0, backgroundColor: "#00CED1" }} />
 
-      <View style={{ padding: 10 }}>
-        <Text style={{ fontSize: 17, fontWeight: "bold" }}>
+      <View style={{ padding: 10, backgroundColor:"black" }}>
+        <Text style={{ fontSize: 32, fontWeight: "bold",marginTop:30, color:"white",marginLeft:20 }}>
           Add a new Address
         </Text>
 
         <TextInput
-          placeholderTextColor={"black"}
-          placeholder="India"
+          placeholderTextColor={"white"}
+          placeholder="Country"
           style={{
             padding: 10,
             borderColor: "#D0D0D0",
             borderWidth: 1,
             marginTop: 10,
             borderRadius: 5,
+            color: "white",
+
           }}
         />
 
         <View style={{ marginVertical: 10 }}>
-          <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+          <Text style={{ fontSize: 15, fontWeight: "bold", color:"white" }}>
             Full name (First and last name)
           </Text>
 
           <TextInput
             value={name}
             onChangeText={(text) => setName(text)}
-            placeholderTextColor={"black"}
+            placeholderTextColor={"white"}
             style={{
               padding: 10,
               borderColor: "#D0D0D0",
               borderWidth: 1,
               marginTop: 10,
               borderRadius: 5,
+              color: "white",
             }}
             placeholder="enter your name"
           />
         </View>
 
         <View>
-          <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+          <Text style={{ fontSize: 15, fontWeight: "bold" , color:"white"}}>
             Mobile numebr
           </Text>
 
           <TextInput
             value={mobileNo}
             onChangeText={(text) => setMobileNo(text)}
-            placeholderTextColor={"black"}
+            placeholderTextColor={"white"}
             style={{
               padding: 10,
               borderColor: "#D0D0D0",
               borderWidth: 1,
               marginTop: 10,
               borderRadius: 5,
+              color: "white",
             }}
             placeholder="Mobile No"
           />
         </View>
 
         <View style={{ marginVertical: 10 }}>
-          <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+          <Text style={{ fontSize: 15, fontWeight: "bold", color:"white" }}>
             Flat,House No,Building,Company
           </Text>
 
           <TextInput
             value={houseNo}
             onChangeText={(text) => setHouseNo(text)}
-            placeholderTextColor={"black"}
+            placeholderTextColor={"white"}
             style={{
               padding: 10,
               borderColor: "#D0D0D0",
               borderWidth: 1,
               marginTop: 10,
               borderRadius: 5,
+              color: "white",
             }}
-            placeholder=""
+            placeholder="House No."
           />
         </View>
 
         <View>
-          <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+          <Text style={{ fontSize: 15, fontWeight: "bold", color:"white" }}>
             Area,Street,sector,village
           </Text>
           <TextInput
             value={street}
             onChangeText={(text) => setStreet(text)}
-            placeholderTextColor={"black"}
+            placeholderTextColor={"white"}
             style={{
               padding: 10,
               borderColor: "#D0D0D0",
               borderWidth: 1,
               marginTop: 10,
               borderRadius: 5,
+              color: "white",
             }}
-            placeholder=""
+            placeholder="Street"
           />
         </View>
 
         <View style={{ marginVertical: 10 }}>
-          <Text style={{ fontSize: 15, fontWeight: "bold" }}>Landmark</Text>
+          <Text style={{ fontSize: 15, fontWeight: "bold", color:"white" }}>Landmark</Text>
           <TextInput
             value={landmark}
             onChangeText={(text) => setLandmark(text)}
-            placeholderTextColor={"black"}
+            placeholderTextColor={"white"}
             style={{
               padding: 10,
               borderColor: "#D0D0D0",
               borderWidth: 1,
               marginTop: 10,
               borderRadius: 5,
+              color: "white",
             }}
             placeholder="Eg near appollo hospital"
           />
         </View>
 
         <View>
-          <Text style={{ fontSize: 15, fontWeight: "bold" }}>Pincode</Text>
+          <Text style={{ fontSize: 15, fontWeight: "bold", color:"white" }}>Pincode</Text>
 
           <TextInput
             value={postalCode}
             onChangeText={(text) => setPostalCode(text)}
-            placeholderTextColor={"black"}
+            placeholderTextColor={"white"}
             style={{
               padding: 10,
               borderColor: "#D0D0D0",
               borderWidth: 1,
               marginTop: 10,
               borderRadius: 5,
+              color: "white",
             }}
             placeholder="Enter Pincode"
           />
@@ -207,7 +215,7 @@ const AddressScreen = () => {
             marginTop: 20,
           }}
         >
-          <Text style={{ fontWeight: "bold" }}>Add Address</Text>
+          <Text style={{ fontWeight: "bold", color:"white" }}>Add Address</Text>
         </Pressable>
       </View>
     </ScrollView>

@@ -249,7 +249,7 @@ const HomeScreen = () => {
   const fetchAddresses = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.89.200:8000/addresses/${userId}`
+        `http://192.168.92.200:8000/addresses/${userId}`
       );
       const { addresses } = response.data;
 
@@ -306,6 +306,10 @@ const HomeScreen = () => {
                   }}
                 >
                   <Pressable
+                   onPress={() => {
+                    setModalVisible(false);
+                    navigation.navigate("Search");
+                  }}
                     style={{
                       flexDirection: "row",
                       alignItems: "center",
@@ -328,7 +332,7 @@ const HomeScreen = () => {
                     />
                     <TextInput
                       style={{ color: "white" }}
-                      placeholder="Find Your Seeds..."
+                      placeholder="Find Your Seeds"
                       placeholderTextColor="#F6F6F6"
                     />
                   </Pressable>
@@ -748,13 +752,13 @@ const HomeScreen = () => {
                 visible={modalVisible}
                 onTouchOutside={() => setModalVisible(!modalVisible)}
               >
-                <ModalContent style={{ width: "100%", height: 400 }}>
+                <ModalContent style={{ width: "100%", height: 350 ,backgroundColor:"gray"}}>
                   <View style={{ marginBottom: 8 }}>
-                    <Text style={{ fontSize: 16, fontWeight: "500" }}>
+                    <Text style={{ fontSize: 22, fontWeight:"bold" , color:"white"}}>
                       Choose your Location
                     </Text>
 
-                    <Text style={{ marginTop: 5, fontSize: 16, color: "gray" }}>
+                    <Text style={{ marginTop: 5, fontSize: 20, color: "white" }}>
                       Select a delivery location to see product availabilty and
                       delivery options
                     </Text>
@@ -863,7 +867,7 @@ const HomeScreen = () => {
                       marginBottom: 30,
                     }}
                   >
-                    <View
+                    {/* <View
                       style={{
                         flexDirection: "row",
                         alignItems: "center",
@@ -901,7 +905,7 @@ const HomeScreen = () => {
                       <Text style={{ color: "#0066b2", fontWeight: "400" }}>
                         Deliver outside India
                       </Text>
-                    </View>
+                    </View> */}
                   </View>
                 </ModalContent>
               </BottomModal>

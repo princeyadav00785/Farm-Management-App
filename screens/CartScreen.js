@@ -20,7 +20,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const CartScreen = () => {
   const cart = useSelector((state) => state.cart.cart);
-  console.log(cart);
+  // console.log(cart);
   const total = cart
     ?.map((item) => item.price * item.quantity)
     .reduce((curr, prev) => curr + prev, 0);
@@ -76,7 +76,7 @@ const CartScreen = () => {
 
       <View style={{ padding: 10, flexDirection: "row", alignItems: "center", backgroundColor:"black" , marginTop:30}}>
         <Text style={{ fontSize: 18, fontWeight: "400" ,color:"white", marginLeft:90}}>Subtotal : </Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold",color:"white" }}>{total}</Text>
+        <Text style={{ fontSize: 20, fontWeight: "bold",color:"white" }}>Rs. {total}</Text>
       </View>
       {/* <Text style={{ marginHorizontal: 10 }}>EMI details Available</Text> */}
 
@@ -139,7 +139,7 @@ const CartScreen = () => {
                 <Text
                   style={{ fontSize: 20, fontWeight: "bold", marginTop: 6 }}
                 >
-                  {item?.price}
+                 Rs. {item?.price}
                 </Text>
                 {/* <Image
                   style={{ width: 30, height: 30, resizeMode: "contain" }}
