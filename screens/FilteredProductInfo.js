@@ -35,7 +35,7 @@ const FilteredProductInfo = () => {
 
   const addItemToFav = (item) => {
     setAddedToFav(true);
-    console.log("dispatch is called.")
+    console.log("dispatch is called.");
     dispatch(addToFav(item));
     setTimeout(() => {
       setAddedToFav(false);
@@ -45,127 +45,155 @@ const FilteredProductInfo = () => {
   const cart = useSelector((state) => state.cart.cart);
   // console.log(cart);
   const favourites = useSelector((state) => state.favourites.favourites);
-  console.log(favourites);
+  // console.log(favourites);
 
   return (
     <ScrollView
       style={{ marginTop: 0, flex: 1, backgroundColor: "white" }}
       showsVerticalScrollIndicator={false}
     >
-      {/* <View
+     
+      <ImageBackground
         style={{
-          backgroundColor: "#00CED1",
-          padding: 10,
-          flexDirection: "row",
-          alignItems: "center",
+          width: Dimensions.get("window").width,
+          height: (Dimensions.get("window").width * 100) / 100,
+          marginTop: 0,
+          resizeMode: "contain",
         }}
-      >
+        source={{ uri: route.params.carouselImages }}
+      />
+      <View style={styles.productDetails}>
+        <Text style={styles.productTitle}>{route?.params?.title}</Text>
+        <Text style={styles.productPrice}>Current Price : ₹{route?.params?.price}</Text>
+        <Text style={styles.productPrice}>Old Price : ₹{route?.params?.price}</Text>
+        <Text style={styles.productDescription}>
+          Description: {route?.params?.description}
+        </Text>
+        {/* <Text style={styles.productDescription}>
+          Color: {route?.params?.color}
+        </Text>
+        <Text style={styles.productDescription}>
+          Size: {route?.params?.size}
+        </Text>
+        <Text style={styles.productDescription}>
+          Rating: {route?.params?.rating}
+        </Text>
+        <Text style={styles.productDescription}>
+          Harvesting Time: {route?.params?.harvestingTime}
+        </Text>
+        <Text style={styles.productDescription}>
+          Storage Instructions: {route?.params?.storageInstructions}
+        </Text> */}
+      </View>
+      <View style={{ backgroundColor: "black" ,height:250 }}>
         <Pressable
+          onPress={() => addItemToCart(route?.params?.item)}
           style={{
-            flexDirection: "row",
+            backgroundColor: "#FFC72C",
+            padding: 10,
+            borderRadius: 20,
+            justifyContent: "center",
             alignItems: "center",
-            marginHorizontal: 7,
-            gap: 10,
-            backgroundColor: "white",
-            borderRadius: 3,
-            height: 38,
-            flex: 1,
+            marginHorizontal: 10,
+            marginVertical: 10,
           }}
         >
-          <AntDesign
-            style={{ paddingLeft: 10 }}
-            name="search1"
-            size={22}
-            color="black"
-          />
-          <TextInput placeholder="Search Amazon.in" />
-        </Pressable>
-      </View> */}
-
-           <ImageBackground
-            style={{   width: Dimensions.get("window").width,
-            height: (Dimensions.get("window").width * 100) / 100,marginTop: 0, resizeMode: "contain" }}
-            source={{ uri: route.params.carouselImages }} 
-            />
-         <View
-         style={{
-          padding:30,
-          backgroundColor:"black",
-         }}
-         >
-         <View style={{ padding: 0 }}>
-        <Text style={{ fontSize: 25, fontWeight: "900", color:"white" }}>
-          {route?.params?.title}
-        </Text>
-
-        <Text style={{ fontSize: 24, fontWeight: "900", marginTop: 6, color:"white" }}>
-          ₹{route?.params?.price}
-        </Text>
-      </View>
-      <Text style={{ fontSize: 18, fontWeight: "900", marginTop: 22 ,color:"white"}}>
-         Description:
-        </Text>
-        <Text style={{ fontSize: 16, fontWeight: "900", marginTop: 6, color:"white", marginBottom:10 }}>
-        {route?.params?.description}
-        </Text>
-        <Text style={{ fontSize: 16, fontWeight: "900", marginTop: 4, color:"white", marginBottom:40 }}>
-     Ratings :   {route?.params?.description}
-        </Text>
-      <Text style={{ height: 1, borderColor: "#D0D0D0", borderWidth: 1 }} />
- 
-      <Text style={{ color: "green", marginHorizontal: 10, fontWeight: "500" }}>
-        IN Stock
-      </Text>
-      
-         </View>
-
-            <View style ={{ backgroundColor:"black"}}>
-            <Pressable
-        onPress={() => addItemToCart(route?.params?.item)}
-        style={{
-          backgroundColor: "#FFC72C",
-          padding: 10,
-          borderRadius: 20,
-          justifyContent: "center",
-          alignItems: "center",
-          marginHorizontal: 10,
-          marginVertical: 10,
-        }}
-      >
-        {addedToCart ? (
-          <View>
-            <Text>Added to Cart</Text>
-          </View>
-        ) : (
-          <Text>Add to Cart</Text>
-        )}
-      </Pressable>
-
-      <Pressable
-        onPress={() => addItemToFav(route?.params?.item)}
-        style={{
-          backgroundColor: "#FFC72C",
-          padding: 10,
-          borderRadius: 20,
-          justifyContent: "center",
-          alignItems: "center",
-          marginHorizontal: 10,
-          marginVertical: 10,
-        }}
-      >
-        {addedToFav ? (
-          <View>
-            <Text>Added to Fav</Text>
-          </View>
-        ) : (
-          <Text>Add to Fav</Text>
-        )}
-      </Pressable>
+          {addedToCart ? (
+            <View>
+              <Text>Added to Cart</Text>
             </View>
+          ) : (
+            <Text 
+            // style={{marginBottom:50}}
+            >Add to Cart</Text>
+          )}
+        </Pressable>
+
+        <Pressable
+          onPress={() => addItemToFav(route?.params?.item)}
+          style={{
+            backgroundColor: "#FFC72C",
+            padding: 10,
+            borderRadius: 20,
+            justifyContent: "center",
+            alignItems: "center",
+            marginHorizontal: 10,
+            marginVertical: 10,
+          }}
+        >
+          {addedToFav ? (
+            <View>
+              <Text>Added to Fav</Text>
+            </View>
+          ) : (
+            <Text>Add to Fav</Text>
+          )}
+        </Pressable>
+      </View>
     </ScrollView>
   );
 };
 
 export default FilteredProductInfo;
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: "black",
+    // padding: 30,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  searchBar: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: 3,
+    height: 38,
+    flex: 1,
+    paddingHorizontal: 10,
+  },
+  image: {
+    // marginTop:10,
+    width: Dimensions.get("window").width,
+    height: (Dimensions.get("window").width * 100) / 100,
+    resizeMode: "contain",
+    backgroundColor: "black",
+    // borderRadius:25
+  },
+  productDetails: {
+    padding: 30,
+    backgroundColor: "black",
+  },
+  productTitle: {
+    color: "white",
+    fontSize: 18,
+    // marginLeft:35,
+    marginTop:20,
+    marginBottom:20,
+    fontWeight: "900",
+  },
+  productPrice: {
+    fontSize: 18,
+    fontWeight: "800",
+    marginTop: 6,
+    color: "white",
+  },
+  productDescription: {
+    color: "white",
+    fontSize: 16,
+    marginTop: 15,
+  },
+  button: {
+    backgroundColor: "#FFAC1C",
+    padding: 10,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 10,
+    marginVertical: 10,
+  },
+});
 
-const styles = StyleSheet.create({});
+
+
+
+

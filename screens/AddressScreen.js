@@ -44,7 +44,7 @@ const AddressScreen = () => {
           postalCode
       }
 
-      axios.post("http://192.168.92.200:8000/addresses",{userId,address}).then((response) => {
+      axios.post("http://192.168.114.200:8000/addresses",{userId,address}).then((response) => {
           Alert.alert("Success","Addresses added successfully");
           setName("");
           setMobileNo("");
@@ -204,7 +204,10 @@ const AddressScreen = () => {
           />
         </View>
 
-        <Pressable
+       <View 
+       style={{height:200}}
+       >
+       <Pressable
         onPress={handleAddAddress}
           style={{
             backgroundColor: "#FFC72C",
@@ -213,10 +216,12 @@ const AddressScreen = () => {
             justifyContent: "center",
             alignItems: "center",
             marginTop: 20,
+            
           }}
         >
           <Text style={{ fontWeight: "bold", color:"white" }}>Add Address</Text>
         </Pressable>
+       </View>
       </View>
     </ScrollView>
   );

@@ -32,7 +32,7 @@ const WeatherHome = (props) => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get(
-          `http://192.168.92.200:8000/profile/${userId}`
+          `http://192.168.114.200:8000/profile/${userId}`
         );
         const { user } = response.data;
         setUser(user);

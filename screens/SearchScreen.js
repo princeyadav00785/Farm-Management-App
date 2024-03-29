@@ -1,27 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Pressable, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import axios from 'axios';
 import ProductItem from '../components/ProductItem';
+import products from "../data.json";
 
 const SearchScreen = ({ navigation }) => {
-  const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://fakestoreapi.com/products');
-        setProducts(response.data);
-        setFilteredProducts(response.data); // Initialize filtered products with all products
-      } catch (error) {
-        console.log('error message', error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   // Function to handle text input changes and filter products based on the search query
   const handleSearch = (query) => {
@@ -100,6 +85,7 @@ const SearchScreen = ({ navigation }) => {
                 carouselImages: item.image,
                 item: item,
                 description: item.description,
+                
               });
             }}
             style={{

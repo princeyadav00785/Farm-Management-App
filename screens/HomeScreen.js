@@ -36,6 +36,8 @@ import {
 } from "../theme/theme";
 import { LinearGradient } from "expo-linear-gradient";
 import GradientBackground from "../components/GradientBackground";
+import products from "../data.json";
+
 
 const HomeScreen = () => {
   const list = [
@@ -75,166 +77,301 @@ const HomeScreen = () => {
     },
   ];
   const images = [
-    "https://images.unsplash.com/photo-1509814741693-902b8af25f95?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1478029115463-6371b5133cac?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1572851898951-4075ed48c0ce?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTR8NzgyMTIzfHxlbnwwfHx8fHw%3D",
+    "https://www.seedbasket.in/image/cache/catalog/Home-Sliders/banner-cc1-1130x360-0.png",
+    "https://www.seedbasket.in/image/cache/catalog/Home-Sliders/banner-cc2-1130x360-0.png",
+    "https://www.seedbasket.in/image/cache/catalog/Home-Sliders/HS11-1130x360-0.jpg",
+    "https://www.seedbasket.in/image/cache/catalog/Home-Sliders/slide-222-1130x360-0.jpg"
   ];
+
   const deals = [
     {
       id: "20",
-      title: "OnePlus Nord CE 3 Lite 5G (Pastel Lime, 8GB RAM, 128GB Storage)",
-      oldPrice: 25000,
-      price: 19000,
+      title: "Tomato Non Hybrid (400+ Seeds)",
+      oldPrice: 40,
+      price: 30,
       image:
-        "https://images.unsplash.com/photo-1555269030-32ab00051c67?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://www.seedbasket.in/image/cache/catalog/Updated%20Images/Tomato-200x200-0.png",
       carouselImages: [
-        "https://m.media-amazon.com/images/I/61QRgOgBx0L._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61uaJPLIdML._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/510YZx4v3wL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61J6s1tkwpL._SX679_.jpg",
+        "https://www.seedbasket.in/image/cache/catalog/Updated%20Images/Tomato-200x200-0.png",
       ],
-      color: "Stellar Green",
-      size: "6 GB RAM 128GB Storage",
+      color: "Red",
+      size: "Small",
+      description: "Fresh tomato seeds suitable for home gardening.",
+      rating: 4.5,
+      harvestingTime: "60-80 days",
+      storageInstructions:
+        "Store in a cool, dry place away from direct sunlight.",
     },
     {
       id: "30",
-      title:
-        "Samsung Galaxy S20 FE 5G (Cloud Navy, 8GB RAM, 128GB Storage) with No Cost EMI & Additional Exchange Offers",
-      oldPrice: 74000,
-      price: 26000,
+      title: "Palak/Spinach (400+ Seeds)",
+      oldPrice: 40,
+      price: 30,
       image:
-        "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Wireless/Samsung/SamsungBAU/S20FE/GW/June23/BAU-27thJune/xcm_banners_2022_in_bau_wireless_dec_s20fe-rv51_580x800_in-en.jpg",
+        "https://www.seedbasket.in/image/cache/catalog/Spinach-200x200-0.png",
       carouselImages: [
-        "https://m.media-amazon.com/images/I/81vDZyJQ-4L._SY879_.jpg",
-        "https://m.media-amazon.com/images/I/61vN1isnThL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71yzyH-ohgL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61vN1isnThL._SX679_.jpg",
-      ],
-      color: "Cloud Navy",
-      size: "8 GB RAM 128GB Storage",
-    },
-    {
-      id: "40",
-      title:
-        "Samsung Galaxy M14 5G (ICY Silver, 4GB, 128GB Storage) | 50MP Triple Cam | 6000 mAh Battery | 5nm Octa-Core Processor | Android 13 | Without Charger",
-      oldPrice: 16000,
-      price: 14000,
-      image:
-        "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Wireless/Samsung/CatPage/Tiles/June/xcm_banners_m14_5g_rv1_580x800_in-en.jpg",
-      carouselImages: [
-        "https://m.media-amazon.com/images/I/817WWpaFo1L._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/81KkF-GngHL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61IrdBaOhbL._SX679_.jpg",
-      ],
-      color: "Icy Silver",
-      size: "6 GB RAM 64GB Storage",
-    },
-    {
-      id: "40",
-      title:
-        "realme narzo N55 (Prime Blue, 4GB+64GB) 33W Segment Fastest Charging | Super High-res 64MP Primary AI Camera",
-      oldPrice: 12999,
-      price: 10999,
-      image:
-        "https://images-eu.ssl-images-amazon.com/images/G/31/tiyesum/N55/June/xcm_banners_2022_in_bau_wireless_dec_580x800_v1-n55-marchv2-mayv3-v4_580x800_in-en.jpg",
-      carouselImages: [
-        "https://m.media-amazon.com/images/I/41Iyj5moShL._SX300_SY300_QL70_FMwebp_.jpg",
-        "https://m.media-amazon.com/images/I/61og60CnGlL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61twx1OjYdL._SX679_.jpg",
-      ],
-    },
-  ];
-  const offers = [
-    {
-      id: "0",
-      title:
-        "Oppo Enco Air3 Pro True Wireless in Ear Earbuds with Industry First Composite Bamboo Fiber, 49dB ANC, 30H Playtime, 47ms Ultra Low Latency,Fast Charge,BT 5.3 (Green)",
-      offer: "72% off",
-      oldPrice: 7500,
-      price: 4500,
-      image:
-        "https://m.media-amazon.com/images/I/61a2y1FCAJL._AC_UL640_FMwebp_QL65_.jpg",
-      carouselImages: [
-        "https://m.media-amazon.com/images/I/61a2y1FCAJL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71DOcYgHWFL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71LhLZGHrlL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61Rgefy4ndL._SX679_.jpg",
+        "https://www.seedbasket.in/image/cache/catalog/Spinach-200x200-0.png",
       ],
       color: "Green",
-      size: "Normal",
+      size: "Medium",
+      description: "High-quality spinach seeds for your garden.",
+      rating: 4.2,
+      harvestingTime: "30-40 days",
+      storageInstructions: "Keep in a plastic bag in the refrigerator.",
     },
     {
-      id: "1",
-      title:
-        "Fastrack Limitless FS1 Pro Smart Watch|1.96 Super AMOLED Arched Display with 410x502 Pixel Resolution|SingleSync BT Calling|NitroFast Charging|110+ Sports Modes|200+ Watchfaces|Upto 7 Days Battery",
-      offer: "40%",
-      oldPrice: 7955,
-      price: 3495,
-      image: "https://m.media-amazon.com/images/I/41mQKmbkVWL._AC_SY400_.jpg",
+      id: "40",
+      title: "Amaranth Green(Thotakura) (1400+ Seeds)",
+      oldPrice: 40,
+      price: 30,
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Amaranth-Green-200x200-0.png",
       carouselImages: [
-        "https://m.media-amazon.com/images/I/71h2K2OQSIL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71BlkyWYupL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71c1tSIZxhL._SX679_.jpg",
+        "https://www.seedbasket.in/image/cache/catalog/Amaranth-Green-200x200-0.png",
       ],
-      color: "black",
-      size: "Normal",
+      color: "Purple",
+      size: "Large",
+      description: "Fresh amaranth seeds suitable for large-scale cultivation.",
+      rating: 4.8,
+      harvestingTime: "40-50 days",
+      storageInstructions: "Keep in a dry, well-ventilated area.",
     },
+    {
+      id: "40",
+      title: "Coriander (300+ Seeds)",
+      oldPrice: 40,
+      price: 30,
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Coriander-200x200-0.png",
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/Coriander-200x200-0.png",
+      ],
+      color: "Brown",
+      size: "Small",
+      description: "Premium coriander seeds for culinary use.",
+      rating: 4.4,
+      harvestingTime: "25-45 days",
+      storageInstructions:
+        "Store in an airtight container in the refrigerator.",
+    },
+    {
+      id: "40",
+      title: "Chukka Kura (250+ Seeds)",
+      oldPrice: 40,
+      price: 30,
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/chukkakura-200x200-0.png",
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/chukkakura-200x200-0.png",
+      ],
+      color: "Dark Green",
+      size: "Medium",
+      description: "High-yield chukka kura seeds for your garden.",
+      rating: 4.6,
+      harvestingTime: "30-45 days",
+      storageInstructions: "Keep in a cool, dark place.",
+    },
+    {
+      id: "40",
+      title: "Microgreen Amaranthus Seeds (100 Grms)",
+      oldPrice: 180,
+      price: 120,
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Products/MicroGreens/Amaranth-Microgreens-200x200-0.JPG",
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/Products/MicroGreens/Amaranth-Microgreens-200x200-0.JPG",
+      ],
+      color: "Red",
+      size: "Small",
+      description: "Fresh microgreen amaranthus seeds for home cultivation.",
+      rating: 4.7,
+      harvestingTime: "10-14 days",
+      storageInstructions: "Sprinkle with water and cover with a plastic dome.",
+    },
+  ];
+
+  const offers = [
     {
       id: "2",
-      title: "Aishwariya System On Ear Wireless On Ear Bluetooth Headphones",
-      offer: "40%",
-      oldPrice: 7955,
-      price: 3495,
-      image: "https://m.media-amazon.com/images/I/41t7Wa+kxPL._AC_SY400_.jpg",
-      carouselImages: ["https://m.media-amazon.com/images/I/41t7Wa+kxPL.jpg"],
-      color: "black",
-      size: "Normal",
+      title: "Plant Care Kit (Pack of 4) Natural and Organic",
+      oldPrice: 880,
+      price: 635,
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/Products/Kits/Organic-plant-Nutrient-Kit-200x200-0.png",
+      ],
+      color: "Natural",
+      size: "Standard",
+      description:
+        "Complete plant care kit containing natural and organic products.",
+      rating: 4.7,
+      harvestingTime: "Varies by plant type",
+      storageInstructions: "Store in a cool, dry place.",
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Products/Kits/Organic-plant-Nutrient-Kit-200x200-0.png",
+      offer: Math.round(((880 - 635) / 635) * 100),
     },
     {
       id: "3",
-      title:
-        "Fastrack Limitless FS1 Pro Smart Watch|1.96 Super AMOLED Arched Display with 410x502 Pixel Resolution|SingleSync BT Calling|NitroFast Charging|110+ Sports Modes|200+ Watchfaces|Upto 7 Days Battery",
-      offer: "40%",
-      oldPrice: 24999,
-      price: 19999,
-      image: "https://m.media-amazon.com/images/I/71k3gOik46L._AC_SY400_.jpg",
+      title: "Little Gardeners Kit for Kids",
+      oldPrice: 199,
+      price: 129,
       carouselImages: [
-        "https://m.media-amazon.com/images/I/41bLD50sZSL._SX300_SY300_QL70_FMwebp_.jpg",
-        "https://m.media-amazon.com/images/I/616pTr2KJEL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71wSGO0CwQL._SX679_.jpg",
+        "https://www.seedbasket.in/image/cache/catalog/Products/Kits/IMG-20240309-WA0046-200x200-0.jpg",
       ],
-      color: "Norway Blue",
-      size: "8GB RAM, 128GB Storage",
+      color: "Multicolor",
+      size: "Kids",
+      description: "Engaging gardening kit designed specifically for kids.",
+      rating: 4.8,
+      harvestingTime: "N/A",
+      storageInstructions: "Keep away from direct sunlight.",
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Products/Kits/IMG-20240309-WA0046-200x200-0.jpg",
+      offer: Math.round(((199 - 129) / 149) * 100),
+    },
+    {
+      id: "4",
+      title: "Bhendi/Okra Non-Hybrid (80 Seeds)",
+      oldPrice: 40,
+      price: 30,
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/Products/Non%20Hybrid/Bhendi-200x200-0.png",
+      ],
+      color: "Green",
+      size: "Standard",
+      description:
+        "High-quality non-hybrid okra seeds suitable for home gardening.",
+      rating: 4.5,
+      harvestingTime: "60-70 days",
+      storageInstructions: "Keep seeds in a dry place.",
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Products/Non%20Hybrid/Bhendi-200x200-0.png",
+      offer: Math.round(((40 - 30) / 40) * 100),
+    },
+    {
+      id: "5",
+      title: "White Bitter Gourd (30 Seeds)",
+      oldPrice: 50,
+      price: 30,
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/Products/Non%20Hybrid/BitterGourd-White-200x200-0.png",
+      ],
+      color: "White",
+      size: "Standard",
+      description: "Premium quality white bitter gourd seeds for cultivation.",
+      rating: 4.2,
+      harvestingTime: "60-70 days",
+      storageInstructions: "Keep seeds in a cool, dry place.",
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Products/Non%20Hybrid/BitterGourd-White-200x200-0.png",
+      offer: Math.round(((50 - 30) / 30) * 100),
+    },
+    {
+      id: "6",
+      title: "Tomato Non Hybrid (400+ Seeds)",
+      oldPrice: 40,
+      price: 30,
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/Updated%20Images/Tomato-200x200-0.png",
+      ],
+      color: "Red",
+      size: "Standard",
+      description: "Fresh tomato seeds suitable for home gardening.",
+      rating: 4.6,
+      harvestingTime: "60-80 days",
+      storageInstructions: "Keep seeds in a warm place.",
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Updated%20Images/Tomato-200x200-0.png",
+      offer: Math.round(((40 - 30) / 40) * 100),
+    },
+    {
+      id: "7",
+      title: "Palak/Spinach (400+ Seeds)",
+      oldPrice: 48,
+      price: 30,
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/Spinach-200x200-0.png",
+      ],
+      color: "Green",
+      size: "Standard",
+      description: "High-quality spinach seeds for your garden.",
+      rating: 4.4,
+      harvestingTime: "30-40 days",
+      storageInstructions: "Keep seeds moist until germination.",
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Spinach-200x200-0.png",
+      offer: Math.round(((48 - 30) / 40) * 100),
+    },
+    {
+      id: "8",
+      title: "Amaranth Green (Thotakura) (1400+ Seeds)",
+      oldPrice: 45,
+      price: 30,
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/Amaranth-Green-200x200-0.png",
+      ],
+      color: "Green",
+      size: "Standard",
+      description: "High-yield amaranth green seeds suitable for cultivation.",
+      rating: 4.7,
+      harvestingTime: "60-80 days",
+      storageInstructions: "Store in a cool, dry place.",
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Amaranth-Green-200x200-0.png",
+      offer: Math.round(((45 - 30) / 40) * 100),
+    },
+    {
+      id: "9",
+      title: "Coriander (300+ Seeds)",
+      oldPrice: 40,
+      price: 30,
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/Coriander-200x200-0.png",
+      ],
+      color: "Brown",
+      size: "Standard",
+      description: "Premium coriander seeds for culinary use.",
+      rating: 4.3,
+      harvestingTime: "30-45 days",
+      storageInstructions: "Keep seeds in a dry, airtight container.",
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/Coriander-200x200-0.png",
+      offer: Math.round(((40 - 30) / 40) * 100),
+    },
+    {
+      id: "10",
+      title: "Chukka Kura (250+ Seeds)",
+      oldPrice: 49,
+      price: 30,
+      carouselImages: [
+        "https://www.seedbasket.in/image/cache/catalog/chukkakura-200x200-0.png",
+      ],
+      color: "Dark Green",
+      size: "Standard",
+      description: "High-quality chukka kura seeds for your garden.",
+      rating: 4.5,
+      harvestingTime: "40-50 days",
+      storageInstructions: "Keep seeds in a dry place.",
+      image:
+        "https://www.seedbasket.in/image/cache/catalog/chukkakura-200x200-0.png",
+      offer: Math.round(((49 - 30) / 40) * 100),
     },
   ];
-  const [products, setProducts] = useState([]);
+
+  // const [products, setProducts] = useState([]);
   const navigation = useNavigation();
   const [open, setOpen] = useState(false);
   const [addresses, setAddresses] = useState([]);
-  const [category, setCategory] = useState("jewelery");
+  const [category, setCategory] = useState("Exotic Seeds");
   const { userId, setUserId } = useContext(UserType);
   const [Company, setCompanyOpen] = useState(true);
   const [selectedAddress, setSelectedAdress] = useState("");
-  console.log(selectedAddress);
-  const [items, setItems] = useState([
-    { label: "Men's clothing", value: "men's clothing" },
-    { label: "jewelery", value: "jewelery" },
-    { label: "electronics", value: "electronics" },
-    { label: "women's clothing", value: "women's clothing" },
-  ]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://fakestoreapi.com/products");
-        setProducts(response.data);
-        // console.log(response.data);
-      } catch (error) {
-        console.log("error message", error);
-      }
-    };
 
-    fetchData();
-  }, []);
+  const [items, setItems] = useState([
+    { label: "Herbal Seeds", value: "Herbal Seeds" },
+    { label: "Exotic Seeds", value: "Exotic Seeds" },
+    { label: "Vegetable Seeds", value: "Vegetable Seeds" },
+  ]);
+
   const onGenderOpen = useCallback(() => {
     setCompanyOpen(false);
   }, []);
@@ -249,7 +386,7 @@ const HomeScreen = () => {
   const fetchAddresses = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.92.200:8000/addresses/${userId}`
+        `http://192.168.114.200:8000/addresses/${userId}`
       );
       const { addresses } = response.data;
 
@@ -268,7 +405,7 @@ const HomeScreen = () => {
 
     fetchUser();
   }, []);
-  console.log("address", addresses);
+
   return (
     <>
       <SafeAreaView
@@ -306,10 +443,10 @@ const HomeScreen = () => {
                   }}
                 >
                   <Pressable
-                   onPress={() => {
-                    setModalVisible(false);
-                    navigation.navigate("Search");
-                  }}
+                    onPress={() => {
+                      setModalVisible(false);
+                      navigation.navigate("Search");
+                    }}
                     style={{
                       flexDirection: "row",
                       alignItems: "center",
@@ -423,12 +560,6 @@ const HomeScreen = () => {
                   ImageComponentStyle={{ width: "100%" }}
                 />
 
-                {/* <LinearGradient
-                  start={{x: 0, y: 0}}
-                  end={{x: 1, y: 1}}
-                  colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
-                  // style={styles.CartItemLinearGradient}
-                > */}
                 <View style={styles.clr}>
                   <Text
                     style={{
@@ -446,9 +577,9 @@ const HomeScreen = () => {
                     style={{
                       flexDirection: "row",
                       flexWrap: "wrap",
-                      justifyContent: "space-between", // Align cards evenly
-                      paddingHorizontal: 10, // Add horizontal padding
-                      marginBottom: 20, // Add bottom margin for spacing between rows
+                      justifyContent: "space-between",
+                      paddingHorizontal: 10,
+                      marginBottom: 20,
                     }}
                   >
                     {deals.map((item, index) => (
@@ -458,20 +589,25 @@ const HomeScreen = () => {
                           navigation.navigate("Info", {
                             id: item.id,
                             title: item.title,
+                            oldPrice: item?.oldPrice,
                             price: item?.price,
                             carouselImages: item.carouselImages,
                             color: item?.color,
                             size: item?.size,
                             oldPrice: item?.oldPrice,
                             item: item,
+                            description: item.description,
+                            rating: item.rating,
+                            harvestingTime: item.harvestingTime,
+                            storageInstructions: item.storageInstructions,
                           })
                         }
                         style={{
                           width: "48%",
-                          backgroundColor: "#333333", // Card background color
+                          backgroundColor: "#333333", 
                           borderRadius: 10,
-                          overflow: "hidden", // Clip overflow content
-                          marginBottom: 10, // Add bottom margin for spacing between cards
+                          overflow: "hidden", 
+                          marginBottom: 10, 
                           elevation: 5,
                         }}
                       >
@@ -480,7 +616,7 @@ const HomeScreen = () => {
                             style={{
                               width: "100%",
                               height: 180,
-                              resizeMode: "cover", // Use "cover" to fill the image container
+                              resizeMode: "cover", 
                               borderTopLeftRadius: 10,
                               borderTopRightRadius: 10,
                             }}
@@ -531,7 +667,7 @@ const HomeScreen = () => {
                               })
                             }
                             style={{
-                              backgroundColor: "#F44336", // Button background color
+                              backgroundColor: "#F44336",
                               borderRadius: 50,
                               paddingVertical: 8,
                               alignItems: "center",
@@ -572,14 +708,17 @@ const HomeScreen = () => {
                         key={index}
                         onPress={() =>
                           navigation.navigate("Info", {
-                            id: item.id,
-                            title: item.title,
+                            oldPrice: item?.oldPrice,
                             price: item?.price,
                             carouselImages: item.carouselImages,
                             color: item?.color,
                             size: item?.size,
                             oldPrice: item?.oldPrice,
                             item: item,
+                            description: item.description,
+                            rating: item.rating,
+                            harvestingTime: item.harvestingTime,
+                            storageInstructions: item.storageInstructions,
                           })
                         }
                         style={{
@@ -587,7 +726,7 @@ const HomeScreen = () => {
                           marginVertical: 10,
                           // alignItems: "center",
                           // justifyContent: "space-between",
-                          width: "20%",
+                          width: "10%",
                           marginLeft: 10,
                           marginBottom: 10,
                           alignItems: "center",
@@ -611,7 +750,17 @@ const HomeScreen = () => {
                           }}
                           source={{ uri: item?.image }}
                         />
-
+                        <Text
+                          style={{
+                            textAlign: "center",
+                            color: "white",
+                            fontSize: 13,
+                            fontWeight: "bold",
+                            marginBottom: 10,
+                          }}
+                        >
+                          {item?.title}
+                        </Text>
                         <View
                           style={{
                             backgroundColor: "#E31837",
@@ -632,7 +781,7 @@ const HomeScreen = () => {
                               marginBottom: 10,
                             }}
                           >
-                            Upto {item?.offer}
+                            Upto {item?.offer} % off
                           </Text>
                         </View>
                       </Pressable>
@@ -650,7 +799,17 @@ const HomeScreen = () => {
                   }}
                 />
                 <View style={{ backgroundColor: "black" }}>
-                  <Text style={{color:"white",marginTop:20, marginLeft:20,fontSize:24,fontWeight:"bold"}}>Select Category</Text>
+                  <Text
+                    style={{
+                      color: "white",
+                      marginTop: 20,
+                      marginLeft: 20,
+                      fontSize: 24,
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Select Category
+                  </Text>
                 </View>
                 <View
                   //  style={styles.container}
@@ -679,13 +838,12 @@ const HomeScreen = () => {
                       placeholder="choose category"
                       placeholderStyle={styles.placeholderStyles}
                       onOpen={onGenderOpen}
-                      // onChangeValue={onChange}
                       zIndex={3000}
                       zIndexInverse={1000}
                     />
                   </View>
                   {/* Filtered products  */}
-                  {/* <GradientBackground> */}
+
 
                   <View
                     vertical
@@ -696,46 +854,51 @@ const HomeScreen = () => {
                       flexWrap: "wrap",
                     }}
                   >
-                    {products
-                      ?.filter((item) => item.category === category)
-                      .map((item, index) => (
-                        <TouchableOpacity
-                          key={index}
-                          onPress={() => {
-                            console.log(
-                              "Navigating to Info screen with item:",
-                              item
-                            );
-                            navigation.navigate("ProductInfo", {
-                              id: item.id,
-                              title: item.title,
-                              price: item?.price,
-                              carouselImages: item.image,
-                              item: item,
-                              description: item.description,
-                            });
-                          }}
-                          style={{
-                            marginBottom: 10,
-                            width: "48%",
-                            alignItems: "center",
-                            shadowColor: "#000",
-                            shadowOffset: {
-                              width: 0,
-                              height: 2,
-                            },
-                            shadowOpacity: 0.25,
-                            shadowRadius: 3.84,
-                            elevation: 5,
-                            backgroundColor: "#333333",
-                            borderRadius: 8,
-                          }}
-                        >
-                          <ProductItem item={item} key={index} />
-                        </TouchableOpacity>
-                      ))}
+{products
+    ?.filter((item) => item.category == category)
+    .map((item, index) => {
+      
+        return (
+            <TouchableOpacity
+                key={index}
+                onPress={() =>
+                    navigation.navigate("ProductInfo", {
+                        price: item?.price,
+                        carouselImages: item.carouselImages,
+                        color: item?.color,
+                        size: item?.size,
+                        oldPrice: item?.oldPrice,
+                        item: item,
+                        description: item.description,
+                        rating: item.rating,
+                        harvestingTime: item.harvestingTime,
+                        storageInstructions: item.storageInstructions,
+                    })
+                }
+                style={{
+                    marginBottom: 10,
+                    width: "48%",
+                    alignItems: "center",
+                    shadowColor: "#000",
+                    shadowOffset: {
+                        width: 0,
+                        height: 2,
+                    },
+                    shadowOpacity: 0.25,
+                    shadowRadius: 3.84,
+                    elevation: 5,
+                    backgroundColor: "#333333",
+                    borderRadius: 8,
+                }}
+            >
+                <ProductItem item={item} key={index} />
+            </TouchableOpacity>
+        );
+    })
+}
+
+
                   </View>
-                  {/* </GradientBackground> */}
                 </View>
               </View>
 
@@ -752,13 +915,27 @@ const HomeScreen = () => {
                 visible={modalVisible}
                 onTouchOutside={() => setModalVisible(!modalVisible)}
               >
-                <ModalContent style={{ width: "100%", height: 350 ,backgroundColor:"gray"}}>
+                <ModalContent
+                  style={{
+                    width: "100%",
+                    height: 350,
+                    backgroundColor: "gray",
+                  }}
+                >
                   <View style={{ marginBottom: 8 }}>
-                    <Text style={{ fontSize: 22, fontWeight:"bold" , color:"white"}}>
+                    <Text
+                      style={{
+                        fontSize: 22,
+                        fontWeight: "bold",
+                        color: "white",
+                      }}
+                    >
                       Choose your Location
                     </Text>
 
-                    <Text style={{ marginTop: 5, fontSize: 20, color: "white" }}>
+                    <Text
+                      style={{ marginTop: 5, fontSize: 20, color: "white" }}
+                    >
                       Select a delivery location to see product availabilty and
                       delivery options
                     </Text>
@@ -867,45 +1044,6 @@ const HomeScreen = () => {
                       marginBottom: 30,
                     }}
                   >
-                    {/* <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        gap: 5,
-                      }}
-                    >
-                      <Entypo name="location-pin" size={22} color="#0066b2" />
-                      <Text style={{ color: "#0066b2", fontWeight: "400" }}>
-                        Enter an Indian pincode
-                      </Text>
-                    </View>
-
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        gap: 5,
-                      }}
-                    >
-                      <Ionicons name="locate-sharp" size={22} color="#0066b2" />
-                      <Text style={{ color: "#0066b2", fontWeight: "400" }}>
-                        Use My Currect location
-                      </Text>
-                    </View>
-
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        gap: 5,
-                      }}
-                    >
-                      <AntDesign name="earth" size={22} color="#0066b2" />
-
-                      <Text style={{ color: "#0066b2", fontWeight: "400" }}>
-                        Deliver outside India
-                      </Text>
-                    </View> */}
                   </View>
                 </ModalContent>
               </BottomModal>
@@ -927,14 +1065,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    // backgroundColor: '#4CAF50', // Fallback color in case gradients are not supported
-    // // Gradient background
-    // background: 'linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)',
   },
   Containerhead: {
-    // flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
     padding: 20, // Add padding for better readability
     backgroundColor: "#FFFFFF",
   },
@@ -951,12 +1083,11 @@ const styles = StyleSheet.create({
 
   text: {
     fontSize: 20,
-    color: "#FFFFFF", // White text color
+    color: "#FFFFFF", 
   },
   CartItemLinearGradient: {
     flex: 1,
     gap: SPACING.space_12,
     padding: SPACING.space_12,
-    // borderRadius: BORDERRADIUS.radius_25,
   },
 });

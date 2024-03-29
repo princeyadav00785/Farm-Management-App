@@ -25,7 +25,7 @@ const AddAddressScreen = () => {
   const fetchAddresses = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.92.200:8000/addresses/${userId}`
+        `http://192.168.114.200:8000/addresses/${userId}`
       );
       const { addresses } = response.data;
 
@@ -46,17 +46,6 @@ const AddAddressScreen = () => {
       showsVerticalScrollIndicator={false}
       style={{ backgroundColor: "black" }}
     >
-      {/* <View
-        style={{
-          backgroundColor: "#00CED1",
-          padding: 10,
-          flexDirection: "row",
-          alignItems: "center",
-        }}
-      >
-        <Feather name="mic" size={24} color="black" />
-      </View> */}
-
       <View style={{ padding: 10 }}>
         <Text
           style={{
@@ -95,19 +84,6 @@ const AddAddressScreen = () => {
             <Text style={{ fontSize: 32, fontWeight: "bold" , color:"white",marginTop:50}}>
               No Saved Address Found
             </Text>
-            {/* <Pressable
-              onPress={() => navigation.navigate("Address")}
-              style={{
-                backgroundColor: "#FFC72C",
-                padding: 10,
-                borderRadius: 20,
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: 15,
-              }}
-            >
-              <Text> No Address Found</Text>
-            </Pressable> */}
           </View>
         ) : (
           // Render address selection section here
@@ -172,44 +148,6 @@ const AddAddressScreen = () => {
                       marginTop: 7,
                     }}
                   >
-                    {/* <Pressable
-                  style={{
-                    backgroundColor: "#F5F5F5",
-                    paddingHorizontal: 10,
-                    paddingVertical: 6,
-                    borderRadius: 5,
-                    borderWidth: 0.9,
-                    borderColor: "#D0D0D0",
-                  }}
-                >
-                  <Text>Edit</Text>
-                </Pressable>
-
-                <Pressable
-                  style={{
-                    backgroundColor: "#F5F5F5",
-                    paddingHorizontal: 10,
-                    paddingVertical: 6,
-                    borderRadius: 5,
-                    borderWidth: 0.9,
-                    borderColor: "#D0D0D0",
-                  }}
-                >
-                  <Text>Remove</Text>
-                </Pressable>
-
-                <Pressable
-                  style={{
-                    backgroundColor: "#F5F5F5",
-                    paddingHorizontal: 10,
-                    paddingVertical: 6,
-                    borderRadius: 5,
-                    borderWidth: 0.9,
-                    borderColor: "#D0D0D0",
-                  }}
-                >
-                  <Text>Set as Default</Text>
-                </Pressable> */}
                   </View>
                 </Pressable>
               ))}

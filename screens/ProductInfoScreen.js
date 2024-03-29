@@ -33,7 +33,7 @@ const ProductInfoScreen = () => {
   };
   const addItemToFav = (item) => {
     setAddedToFav(true);
-    console.log("dispatch is called.")
+    console.log("dispatch is called.");
     dispatch(addToFav(item));
     setTimeout(() => {
       setAddedToFav(false);
@@ -47,7 +47,6 @@ const ProductInfoScreen = () => {
       style={{ flex: 1, backgroundColor: "white" }}
       showsVerticalScrollIndicator={false}
     >
-
       {/* Header/Search Bar */}
       <View style={styles.header}>
         {/* <View style={styles.searchBar}>
@@ -76,10 +75,8 @@ const ProductInfoScreen = () => {
       {/* Product Details */}
       <View style={styles.productDetails}>
         <Text style={styles.productTitle}>{route?.params?.title}</Text>
-        <Text style={styles.productPrice}>₹{route?.params?.price}</Text>
-        <Text style={styles.productDescription}>
-          Brand: {route?.params?.brand}
-        </Text>
+        {/* <Text style={styles.productPrice}>₹{route?.params?.price}</Text> */}
+        <Text style={styles.productPrice}> Price :₹{route?.params?.price}</Text>
         <Text style={styles.productDescription}>
           Description: {route?.params?.description}
         </Text>
@@ -92,42 +89,50 @@ const ProductInfoScreen = () => {
         <Text style={styles.productDescription}>
           Rating: {route?.params?.rating}
         </Text>
+        <Text style={styles.productDescription}>
+          Harvesting Time: {route?.params?.harvestingTime}
+        </Text>
+        <Text style={styles.productDescription}>
+          Storage Instructions: {route?.params?.storageInstructions}
+        </Text>
       </View>
 
       {/* Add to Cart and Buy Now Buttons */}
       <View
         style={{
           backgroundColor: "black",
+          height:250
         }}
       >
         <Pressable
           onPress={() => addItemToCart(route?.params?.item)}
-          style={[styles.button,
+          style={[
+            styles.button,
             //  { backgroundColor: "#FFC72C" }o
-            ]}
+          ]}
         >
           {addedToCart ? <Text>Added to Cart</Text> : <Text>Add to Cart</Text>}
         </Pressable>
         <Pressable
-        onPress={() => addItemToFav(route?.params?.item)}
-        style={{
-          backgroundColor: "#FFC72C",
-          padding: 10,
-          borderRadius: 20,
-          justifyContent: "center",
-          alignItems: "center",
-          marginHorizontal: 10,
-          marginVertical: 10,
-        }}
-      >
-        {addedToFav ? (
-          <View>
-            <Text>Added to Fav</Text>
-          </View>
-        ) : (
-          <Text>Add to Fav</Text>
-        )}
-      </Pressable>
+          onPress={() => addItemToFav(route?.params?.item)}
+          style={{
+            backgroundColor: "#FFC72C",
+            padding: 10,
+            borderRadius: 20,
+            justifyContent: "center",
+            alignItems: "center",
+            marginHorizontal: 10,
+            marginVertical: 10,
+          }}
+        >
+          {addedToFav ? (
+            <View>
+              <Text>Added to Fav</Text>
+            </View>
+          ) : (
+            <Text>Add to Fav</Text>
+          )}
+        </Pressable>
       </View>
     </ScrollView>
   );
@@ -189,3 +194,6 @@ const styles = StyleSheet.create({
 });
 
 export default ProductInfoScreen;
+
+
+

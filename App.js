@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import StackNavigator from "./navigation/StackNavigator";
 import store from "./store";
 import { UserContext } from "./UserContext";
+import { ViewPropTypes } from 'deprecated-react-native-prop-types'; 
 import {
   BORDERRADIUS,
   COLORS,
@@ -41,8 +42,5 @@ const styles = StyleSheet.create({
   },
   CartItemLinearGradient: {
     flex: 1,
-    // gap: SPACING.space_12,
-    // padding: SPACING.space_12,
-    // borderRadius: BORDERRADIUS.radius_25,
   },
 });
