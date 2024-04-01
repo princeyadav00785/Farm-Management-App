@@ -3,6 +3,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
+<<<<<<< HEAD
+=======
+const multer = require('multer');
+
+>>>>>>> master
 
 const app = express();
 const port = 8000;
@@ -12,13 +17,98 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+<<<<<<< HEAD
+=======
+// multer({
+//   limits: {fieldSize: 25 * 1024 * 1024},
+//   // dest: 'uploads/'
+// });
+
+// const Storage = multer.diskStorage({
+//   destination(req, file, callback) {
+//     callback(null, './images')
+//   },
+//   filename(req, file, callback) {
+//     callback(null, `${file.fieldname}_${Date.now()}_${file.originalname}`)
+//   },
+// })
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/test")
+  },
+  filename: (req, file, cb) => {
+    cb(null, `image_predict.${file.originalname.split('.')[1]}`)
+  },
+})
+
+const uploadStorage = multer({ storage: storage })
+
+
+// const upload = multer({ storage: Storage })
+app.post('/api/upload',uploadStorage.single("file") ,(req, res) => {
+  console.log("Im here")
+  let messages = "";
+  console.log('file', req.file)
+  console.log('body', req.body)
+  const spawn = require("child_process").spawn;
+  const pythonProcess = spawn('python3',["./script.py", req.file.filename]);
+    pythonProcess.stdout.on('data', (data) => {
+      messages = data.toString();
+      res.status(200).json({
+        message: messages,
+      })
+    });
+    pythonProcess.stderr.on('data', (data) => {
+      // As said before, convert the Uint8Array to a readable string.
+      console.log(String.fromCharCode.apply(null, data));
+    });
+
+    pythonProcess.on('exit', (code) => {
+      console.log("Process quit with code : " + code);
+    });
+})
+
+// var upload = multer({ dest: 'uploads/' });
+
+// app.post('/api/upload', upload.array('images_data'), (req, res) => {
+//     console.log(req.files);
+    
+//     // req.files.forEach(item => {
+//     //     fs.renameSync(item.path, item.destination + item.originalname)
+//     // })
+// });
+
+
+// app.get('/', (req, res) => {
+//   res.status(200).send('You can post to /api/upload.')
+// })
+
+// app.post('/api/upload', upload.array('photo', 3), (req, res) => {
+//   console.log("Im here")
+//   console.log('file', req.files)
+//   console.log('body', req.body)
+//   res.status(200).json({
+//     message: 'success!',
+//   })
+// })
+
+
+
+
+>>>>>>> master
 const jwt = require("jsonwebtoken");
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
 
 mongoose
+<<<<<<< HEAD
   .connect("mongodb+srv://@cluster0.zuw5eko.mongodb.net/", {
+=======
+  .connect("mongodb+srv://princeyadav00785:ydv_prince00785@cluster0.zuw5eko.mongodb.net/", {
+>>>>>>> master
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

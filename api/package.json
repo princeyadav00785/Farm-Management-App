@@ -4,7 +4,11 @@
   "description": "backend",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start":"nodemon index.js",
+=======
+    "start": "nodemon index.js",
+>>>>>>> master
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,6 +19,10 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.0",
+<<<<<<< HEAD
+=======
+    "multer": "^1.4.5-lts.1",
+>>>>>>> master
     "nodemailer": "^6.9.4",
     "nodemon": "^3.0.1"
   }
