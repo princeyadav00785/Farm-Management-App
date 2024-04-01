@@ -3,11 +3,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
-<<<<<<< HEAD
-=======
 const multer = require('multer');
 
->>>>>>> master
 
 const app = express();
 const port = 8000;
@@ -17,8 +14,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-<<<<<<< HEAD
-=======
 // multer({
 //   limits: {fieldSize: 25 * 1024 * 1024},
 //   // dest: 'uploads/'
@@ -97,18 +92,13 @@ app.post('/api/upload',uploadStorage.single("file") ,(req, res) => {
 
 
 
->>>>>>> master
 const jwt = require("jsonwebtoken");
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
 
 mongoose
-<<<<<<< HEAD
-  .connect("mongodb+srv://@cluster0.zuw5eko.mongodb.net/", {
-=======
   .connect("mongodb+srv://princeyadav00785:ydv_prince00785@cluster0.zuw5eko.mongodb.net/", {
->>>>>>> master
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
