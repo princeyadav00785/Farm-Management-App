@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "KrishiMitra",
+    "slug": "KrishiMitra",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo2.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/logo2.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo2.png",
+        "backgroundColor": "black"
+      },
+      "package": "com.host.exponent"
+    },
+    "web": {
+      "favicon": "./assets/logo2.png"
+    },
+    "ios": {
+      "bundleIdentifier": "com.host.exponent"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3783d5f3-a7ed-403e-9072-d53b41b7c6b9"
+      }
+    }
+  }
+}
