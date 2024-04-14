@@ -68,6 +68,8 @@ To run the KrishiMitra Android App, follow these steps:
 6. **Test the App:** Open the app on an Android emulator or a physical device to explore its functionalities.
 7. **Explore Features:** Experiment with weather updates, seed purchasing, seed information, and disease prediction features to understand their functionality.
 
+Glimpse Of the App:
+![IMG_20240408_231658](https://github.com/princeyadav00785/Farm-Management-App/assets/100501934/bbd060a8-b320-4eff-906e-b0645d10385e)
 
 
 ## License
